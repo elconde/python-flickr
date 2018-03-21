@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/flickr-uploader.iml" filepath="$PROJECT_DIR$/.idea/flickr-uploader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/python-flickr.iml" filepath="$PROJECT_DIR$/.idea/python-flickr.iml" />
     </modules>
   </component>
 </project>
