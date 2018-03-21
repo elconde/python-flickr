@@ -1,9 +1,9 @@
 """Tools for uploading photos"""
 import os
-import flickup
+import flickr
 
 UPLOAD_URL = 'https://up.flickr.com/services/upload'
-LOGGER = flickup.get_logger('upload')
+LOGGER = flickr.get_logger('upload')
 
 
 def upload_photos(photo_file_names, session=None):
@@ -12,7 +12,7 @@ def upload_photos(photo_file_names, session=None):
             'No such file: '+photo_file_name
         )
     if not session:
-        session = flickup.flickr_session()
+        session = flickr.flickr_session()
     for photo_file_name in photo_file_names:
         upload_photo(photo_file_name, session)
 
