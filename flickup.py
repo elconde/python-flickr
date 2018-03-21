@@ -1,3 +1,7 @@
 import flickup
+import os
 
-flickup.upload_photos(['/home/media/photos/CybershotH9/dcim/101msdcf/dsc00002.jpg'])
+APPLE_DIR = '/home/media/photos/FIS Phone/DCIM/100APPLE'
+flickup.upload_photos(
+    [os.path.join(APPLE_DIR, file_name) for file_name in os.listdir(APPLE_DIR)]
+)
