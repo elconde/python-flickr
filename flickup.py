@@ -1,0 +1,3 @@
+import flickup
+
+flickup.authenticate()
