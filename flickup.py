@@ -1,3 +1,3 @@
 import flickup
 
-flickup.authenticate()
+flickup.test_login()

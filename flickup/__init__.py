@@ -1,1 +1,1 @@
-from .flickup_Authenticate import authenticate
+from .flickup_Authenticate import test_login
