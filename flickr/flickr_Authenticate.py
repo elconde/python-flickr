@@ -35,6 +35,5 @@ def flickr_session():
         )
         with open(FLICKR_TOKEN_FILENAME, 'wb') as f_write:
             token = flickr.fetch_access_token(ACCESS_TOKEN_URL)
-            print(token, type(token))
             pickle.dump(token, f_write)
         return flickr
