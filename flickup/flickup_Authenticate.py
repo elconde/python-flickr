@@ -1,6 +1,5 @@
 """Authenticate the application"""
 import pickle
-
 import requests_oauthlib
 import os
 
@@ -11,6 +10,7 @@ SECRET = '204a435d30fdd09e'
 AUTH_BASE_URL = 'https://www.flickr.com/services/oauth/authorize'
 ACCESS_TOKEN_URL = 'https://www.flickr.com/services/oauth/access_token'
 FLICKUP_TOKEN_FILENAME = os.path.expanduser('~/.flickup')
+UPLOAD_URL = 'https://up.flickr.com/services/upload'
 
 
 def flickr_session():
@@ -52,3 +52,24 @@ def test_login(session=None):
         ).content
     )
     return session
+
+
+def upload_photos(photo_file_names, session=None):
+    for photo_file_name in photo_file_names:
+        assert os.path.isfile(photo_file_name), (
+            'No such file: '+photo_file_name
+        )
+    if not session:
+        session = flickr_session()
+    for photo_file_name in photo_file_names:
+        upload_photo(photo_file_name, session)
+
+
+def upload_photo(photo_file_name, session):
+    """Upload a single photo. Called from upload_photos"""
+    print(
+        session.post(
+            UPLOAD_URL,
+            files={'photo': open(photo_file_name, 'rb')}
+        ).content
+    )

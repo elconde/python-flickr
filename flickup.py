@@ -1,3 +1,3 @@
 import flickup
 
-flickup.test_login()
+flickup.upload_photos(['/home/media/photos/CybershotH9/dcim/101msdcf/dsc00002.jpg'])

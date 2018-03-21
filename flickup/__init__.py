@@ -1,1 +1,1 @@
-from .flickup_Authenticate import test_login
+from .flickup_Authenticate import test_login, upload_photos
