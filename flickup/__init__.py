@@ -1,2 +1,1 @@
-import requests
-print(requests.__version__)
+import requests_
