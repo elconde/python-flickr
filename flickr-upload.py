@@ -3,8 +3,13 @@ import flickr
 import argparse
 import sys
 import os
-# PHOTOS_DIR = '/home/media/photos/FIS Phone/DCIM/100APPLE'
-# PHOTOS_DIR = '/home/media/photos/Wedding/Benny/HiRes'
+# /home/media/photos/FIS Phone/DCIM/100APPLE
+# /home/media/photos/Wedding/Benny/HiRes
+# /home/media/photos/2012-04
+# /home/media/photos/2016
+# /home/media/photos/Camera
+
+SUPPORTED_EXTENSIONS = ('.jpg', '.jpeg', '.mp4', '.3gp', '.gif')
 
 
 def main():
@@ -32,11 +37,16 @@ def main():
             print('{}: No such file!'.format(file_name))
             return 29
         lower = file_name.lower()
-        if not lower.endswith('jpg') or lower.endswith('jpeg'):
+        for supported_extension in SUPPORTED_EXTENSIONS:
+            if lower.endswith(supported_extension):
+                break
+        else:
             print(
-                '{}: Only files that end with jpg or jpeg are '
-                'supported!'.format(file_name)
+                '{}: Only these extensions are supported: {}'.format(
+                    file_name, ' '.join(SUPPORTED_EXTENSIONS)
+                )
             )
+            return 41
     flickr.upload_photos(photo_file_names)
 
 
