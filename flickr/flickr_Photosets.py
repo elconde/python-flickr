@@ -1,6 +1,5 @@
 """Implement the flickr.photosets functions"""
 import flickr
-import xml.dom.minidom
 
 
 def photsets_get_list(session=None):
@@ -10,11 +9,23 @@ def photsets_get_list(session=None):
         session = flickr.flickr_session()
     print(
         session.get(
-            'https://api.flickr.com/services/rest',
-            params={'method': 'flickr.photosets.getList'}
+            flickr.REST_URL, params={'method': 'flickr.photosets.getList'}
         ).text
     )
     return session
+
+
+def photosets_add_photo(photoset_id, photo_id, session=None):
+    """Implements flickr.photosets.addPhoto
+    https://www.flickr.com/services/api/flickr.photosets.addPhoto.html"""
+    if not session:
+        session = flickr.flickr_session()
+    session.post(
+        flickr.REST_URL, data={
+            'photoset_id': photoset_id, 'photo_id': photo_id,
+            'method': 'flickr.photosets.addPhoto'
+        }
+    )
 
 
 if __name__ == '__main__':

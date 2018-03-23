@@ -8,8 +8,7 @@ def test_login(session=None):
         session = flickr.flickr_session()
     print(
         session.get(
-            'https://api.flickr.com/services/rest',
-            params={'method': 'flickr.test.login'}
+            flickr.REST_URL, params={'method': 'flickr.test.login'}
         ).content
     )
     return session

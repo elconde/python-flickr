@@ -10,6 +10,7 @@ SECRET = '204a435d30fdd09e'
 AUTH_BASE_URL = 'https://www.flickr.com/services/oauth/authorize'
 ACCESS_TOKEN_URL = 'https://www.flickr.com/services/oauth/access_token'
 FLICKR_TOKEN_FILENAME = os.path.expanduser('~/.flickr')
+REST_URL = 'https://api.flickr.com/services/rest'
 
 
 def flickr_session():

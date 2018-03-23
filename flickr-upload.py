@@ -8,6 +8,7 @@ import os
 # /home/media/photos/2012-04
 # /home/media/photos/2016
 # /home/media/photos/Camera
+# /home/media/photos/FisherPriceRafael
 
 SUPPORTED_EXTENSIONS = ('.jpg', '.jpeg', '.mp4', '.3gp', '.gif')
 
@@ -17,16 +18,7 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
     if args.version:
-        for module_name in (
-            'certifi', 'chardet', 'idna', 'oauthlib', 'requests',
-            'requests_oauthlib', 'urllib3'
-        ):
-            print(
-                '{} {}'.format(
-                    module_name, __import__(module_name).__version__
-                )
-            )
-        print('{} {}'.format(parser.prog, flickr.__version__))
+        print_version(parser)
         return 0
     photo_file_names = args.photo_file_names
     if not photo_file_names:
@@ -47,7 +39,21 @@ def main():
                 )
             )
             return 41
-    flickr.upload_photos(photo_file_names)
+    flickr.upload_photos(photo_file_names, args.photoset_id)
+
+
+def print_version(parser):
+    """Get all the versions and print them out"""
+    for module_name in (
+            'certifi', 'chardet', 'idna', 'oauthlib', 'requests',
+            'requests_oauthlib', 'urllib3'
+    ):
+        print(
+            '{} {}'.format(
+                module_name, __import__(module_name).__version__
+            )
+        )
+    print('{} {}'.format(parser.prog, flickr.__version__))
 
 
 def get_parser():
@@ -57,6 +63,7 @@ def get_parser():
         'photo_file_names', nargs='*', help='list of files to upload'
     )
     parser.add_argument('--version', action='store_true')
+    parser.add_argument('--photoset-id')
     return parser
 
 
