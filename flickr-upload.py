@@ -10,7 +10,7 @@ import os
 # /home/media/photos/Camera
 # /home/media/photos/FisherPriceRafael
 
-SUPPORTED_EXTENSIONS = ('.jpg', '.jpeg', '.mp4', '.3gp', '.gif')
+SUPPORTED_EXTENSIONS = ('.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg')
 
 
 def main():
@@ -39,7 +39,7 @@ def main():
                 )
             )
             return 41
-    flickr.upload_photos(photo_file_names, args.photoset_id)
+    return flickr.upload_photos(photo_file_names, args.photoset_id)
 
 
 def print_version(parser):
