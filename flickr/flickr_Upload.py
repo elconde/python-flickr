@@ -23,12 +23,23 @@ def upload_photos(photo_file_names, photoset_id=None, session=None):
     for photo_file_name in photo_file_names:
         response = upload_and_get_response(photo_file_name, session)
         document = xml.dom.minidom.parseString(response)
-        photo_ids.append(
-            document.getElementsByTagName('photoid')[0].childNodes[0].data
-        )
+        errors = document.getElementsByTagName('err')
+        if errors:
+            error_message = errors[0].getAttribute('msg')
+            LOGGER.error(
+                'Error uploading %s: %s', photo_file_name, error_message
+            )
+            continue
+        photo_id_elements = document.getElementsByTagName('photoid')
+        if not photo_id_elements:
+            LOGGER.critical('Could not understand response!')
+            print(response)
+            sys.exit(30)
+        photo_ids.append(photo_id_elements[0].childNodes[0].data)
     if not photoset_id:
         return
     # Add photos to photo set
+    # TODO: Do this while uploading instead of after
     for photo_id in photo_ids:
         LOGGER.info('Adding %s to photoset %s', photo_id, photoset_id)
         flickr.photosets_add_photo(photoset_id, photo_id, session)
@@ -45,7 +56,9 @@ def upload_and_get_response(photo_file_name, session):
             'trying again in three seconds ({}/3)...'.format(attempt+1)
         )
         if attempt == 2:
-            LOGGER.critical('Could not connect')
+            LOGGER.critical(
+                'Could not connect while uploading %s', photo_file_name
+            )
             sys.exit(48)
         time.sleep(3)
 

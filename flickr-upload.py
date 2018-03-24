@@ -9,8 +9,15 @@ import os
 # /home/media/photos/2016
 # /home/media/photos/Camera
 # /home/media/photos/FisherPriceRafael
+# /home/media/photos/CybershotH9
+# /home/media/photos/Cybershot
+# ~media/photos/Digimax*
+# /home/media/photos/Digimax*
+#
 
-SUPPORTED_EXTENSIONS = ('.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg')
+SUPPORTED_EXTENSIONS = (
+    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi'
+)
 
 
 def main():
