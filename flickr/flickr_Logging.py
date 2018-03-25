@@ -1,5 +1,6 @@
 """Logging tool"""
 import logging
+import sys
 
 
 def configure_logging():
@@ -7,7 +8,8 @@ def configure_logging():
     logging.basicConfig(
         level=logging.DEBUG,
         format='%(asctime)s %(levelname).1s %(name)-10s %(message)s',
-        datefmt='%y%m%d%H%M%S'
+        datefmt='%y%m%d%H%M%S',
+        stream=sys.stdout
     )
     for logger in ('urllib3', 'requests_oauthlib', 'oauthlib'):
         logging.getLogger(logger).setLevel(logging.INFO)

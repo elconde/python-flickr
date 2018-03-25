@@ -13,10 +13,11 @@ import os
 # /home/media/photos/Cybershot
 # ~media/photos/Digimax*
 # /home/media/photos/Digimax*
-#
+# ~media/photos/Karin\ SD\ Card\ 20170625/
+
 
 SUPPORTED_EXTENSIONS = (
-    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi'
+    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi', '.wmv'
 )
 
 
