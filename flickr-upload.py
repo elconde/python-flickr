@@ -12,12 +12,17 @@ import os
 # /home/media/photos/CybershotH9
 # /home/media/photos/Cybershot
 # ~media/photos/Digimax*
-# /home/media/photos/Digimax*
 # ~media/photos/Karin\ SD\ Card\ 20170625/
-
+# /home/media/photos/R
+# ~media/photos/CybershotKarin
+# home/media/photos/Happy2015
+# ~media/photos/cool
+# ~media/photos/K
+# ~media/photos/B
+# home/media/photos/RafaelVideos
 
 SUPPORTED_EXTENSIONS = (
-    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi', '.wmv'
+    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi', '.wmv', '.png'
 )
 
 
