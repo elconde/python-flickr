@@ -10,4 +10,4 @@ Python 3. I've included all the third party libraries needed so you
 don't have to install them.
 
 ## Version
-1.1.1
+1.1.2
