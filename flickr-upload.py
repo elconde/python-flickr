@@ -20,9 +20,21 @@ import os
 # ~media/photos/K
 # ~media/photos/B
 # home/media/photos/RafaelVideos
+# ~media/photos/Belgium
+# ~media/photos/Israel/
+# /home/media/photos/Mathcamp
+# /home/media/photos/Nawleans
+# /home/media/photos/p
+# ~media/photos/Donostia
+# ~media/photos/other
+# ~media/photos/Cambridge
+# ~media/photos/s
+# ~media/photos/r~
+# GC2004
 
 SUPPORTED_EXTENSIONS = (
-    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi', '.wmv', '.png'
+    '.jpg', '.jpeg', '.mp4', '.3gp', '.gif', '.mpg', '.avi', '.wmv', '.png',
+    '.m4v', '.mov', '.bmp'
 )
 
 
